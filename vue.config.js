@@ -1,0 +1,37 @@
+module.exports={
+	devServer:{
+		port:"8080",
+		host:"127.0.0.1",
+		open:true,
+		proxy:{
+			"/pinmao":{
+				target:"http://127.0.0.1:8849/pinmaozx",
+				changeOrigin:true,
+				pathRewrite:{
+					"^/pinmao":""
+				}
+			},
+			"/video":{
+				target:"http://127.0.0.1:8849/pinmaovideo",
+				changeOrigin:true,
+				pathRewrite:{
+					"^/video":""
+				}
+			},
+			"/upload":{
+				target:"http://127.0.0.1:8081/pinmaoupload",
+				changeOrigin:true,
+				pathRewrite:{
+					"^/upload":""
+				}
+			},
+			"/login":{
+				target:"http://127.0.0.1:8082/pinmaologin",
+				changeOrigin:true,
+				pathRewrite:{
+					"^/login":""
+				}
+			}
+		}
+	}
+}
